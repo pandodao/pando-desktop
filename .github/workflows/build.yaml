@@ -2,8 +2,8 @@ name: Build and release
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "v*.*.*"
 
 jobs:
   build:
@@ -24,3 +24,17 @@ jobs:
         with:
           build-name: ${{ matrix.build.name }}
           build-platform: ${{ matrix.build.platform }}
+          package: false
+
+      # Upload build assets
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Wails Build ${{runner.os}} ${{inputs.build-name}}
+          path: |
+            */bin/
+            *\bin\*
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            */bin/*
