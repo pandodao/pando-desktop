@@ -1,7 +1,5 @@
 name: Build and release
 
-env:
-
 on:
   push:
     branches:
