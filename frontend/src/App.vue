@@ -55,7 +55,7 @@ const items:Ref<any> = ref([{
   name: "bazaar",
   label: "Bazaar",
   text: "A online shopping mall for digital goods",
-  url: "https://bazaar.mixin.fan"
+  url: "https://bazaar.mixin.fan/?region=us"
 }]);
 
 function selectTab(tab:any) {
